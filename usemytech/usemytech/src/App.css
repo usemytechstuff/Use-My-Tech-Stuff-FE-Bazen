@@ -33,3 +33,36 @@ form {
   border: 1px solid #d4d4d4;
   border-radius: 6px;
 }
+
+.item-card{
+  position: relative;
+  background: #fff;
+  border-radius: 2px;
+  display: flex;
+  max-height: 200px;
+  margin: 1rem;
+  padding: 1rem;
+  width: 400px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+}
+
+.fa-times-circle{
+position: absolute;
+right: 9px;
+top: 10px;
+}
+
+img {
+  width: 55%;
+}
+
+.item-info {
+  text-align: start;
+  padding-left: 24px;
+}
+
+.item-list {
+  display: flex;
+  flex-flow: column nowrap;
+  align-items: center;
+}

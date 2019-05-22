@@ -15,10 +15,11 @@ componentDidMount() {
 
 render(){
     return(
-        <div>
+        <div className='item-list'>
+        
             {this.props.error && <p>{this.props.error}</p>}
         {this.props.items.map(item => {
-           return <Item key={item.id} item={item} />
+            return <Item key={item.id} item={item} />
         })}
             </div>
     )

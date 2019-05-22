@@ -5,7 +5,7 @@ import Loader from "react-loader-spinner";
 
 class AddItemForm extends Component {
   state = {
-    items: {
+    item: {
       owner: "",
       title: "",
       description: "",
@@ -17,26 +17,26 @@ class AddItemForm extends Component {
 
   handleItemChange = event => {
     this.setState({
-      items: {
-        ...this.state.items,
+      item: {
+        ...this.state.item,
         [event.target.name]: event.target.value
       }
     });
   };
 
-  submitItem = event => {
+  addItem = event => {
     event.preventDefault();
-    this.props.addItem(this.state.items).then(() => {
-      this.props.history.push("/items");
+    this.props.addItem(this.state.item).then(() => {
+      this.props.history.push("/protected");
     });
     this.setState({
-      items: {
+      item: {
+        owner: "",
         title: "",
         description: "",
         type: "",
         price: "",
-        availability: "",
-        owner: ''
+        availability: ""
       }
     });
   };
@@ -44,47 +44,47 @@ class AddItemForm extends Component {
   render() {
     return (
       <div>
-        <form onSubmit={this.submitItem}>
+        <form onSubmit={this.addItem}>
           Title:{" "}
           <input
             type="text"
             name="title"
-            value={this.state.items.title}
+            value={this.state.item.title}
             onChange={this.handleItemChange}
           />
           Type:{" "}
           <input
             type="text"
             name="type"
-            value={this.state.items.type}
+            value={this.state.item.type}
             onChange={this.handleItemChange}
           />
           Price:{" "}
           <input
             type="integer"
             name="price"
-            value={this.state.items.price}
+            value={this.state.item.price}
             onChange={this.handleItemChange}
           />
           Description:{" "}
           <input
             type="text"
             name="description"
-            value={this.state.items.description}
+            value={this.state.item.description}
             onChange={this.handleItemChange}
           />
           Availability:{" "}
           <input
             type="boolean"
             name="availability"
-            value={this.state.items.availability}
+            value={this.state.item.availability}
             onChange={this.handleItemChange}
           />
           Owner:{" "}
           <input
             type="integer"
             name="owner"
-            value={this.state.items.owner}
+            value={this.state.item.owner}
             onChange={this.handleItemChange}
           />
           <button>
@@ -100,10 +100,14 @@ class AddItemForm extends Component {
   }
 }
 
-const mapStateToProps = state => ({
-  addingItem: state.addingItem,
-  error: state.error 
+const mapStateToProps = ({ addingItem }) => ({
+  addingItem
 });
+
+// const mapStateToProps = state => ({
+//   addingItem: state.addingItem,
+//   error: state.error
+// });
 
 export default connect(
   mapStateToProps,
