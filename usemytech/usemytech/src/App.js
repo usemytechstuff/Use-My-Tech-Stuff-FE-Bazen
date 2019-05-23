@@ -5,10 +5,10 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom";
 import Login from "./components/Login";
 import SignUp from "./components/SignUp";
 
-import Items from "./components/Items";
+import ItemsList from "./components/ItemsList";
 import PrivateRoute from "./components/PrivateRoute";
 import AddItemForm from "./components/AddItemForm";
-import ItemList from './components/ItemList'
+import EditForm from './components/EditForm';
 
 class App extends Component {
   render() {
@@ -26,8 +26,9 @@ class App extends Component {
           </header>
 
           <Route path="/login" component={Login} />
-          <PrivateRoute exact path="/protected" component={Items} />
+          <PrivateRoute exact path="/protected" component={ItemsList} />
           <PrivateRoute exact path="/item-form" component={AddItemForm} />
+          <PrivateRoute  exact path="/item/edit-form/:id" component={EditForm} />
           <Route path="/signup" component={SignUp} />
           
         </div>

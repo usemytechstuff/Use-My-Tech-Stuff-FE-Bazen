@@ -3,6 +3,9 @@ import {
     SIGNUP_START, SIGNUP_SUCCESS, SIGNUP_FAILURE,
     ADD_ITEM_START, ADD_ITEM_SUCCESS, ADD_ITEM_FAILURE,
     FETCH_ITEM_START, FETCH_ITEM_SUCCESS, FETCH_ITEM_FAILURE,
+    DELETE_ITEM_START, DELETE_ITEM_SUCCESS, 
+    EDIT_ITEM_START, EDIT_ITEM_SUCCESS, EDIT_ITEM_FAILURE,
+    FETCH_ID_START,FETCH_ID_SUCCESS,FETCH_ID_FAILURE
    
 } from '../actions'
 
@@ -14,7 +17,12 @@ const initialState = {
     addingItem: false,
     fetchingItems: false,
     owner: null,
-    items: []
+    items: [],
+    deletingItem: false,
+    message: null,
+    editingItem: false,
+    editingItemId: null,
+    item: null
 }
 
 const reducer = ( state = initialState, action ) => {
@@ -58,13 +66,14 @@ const reducer = ( state = initialState, action ) => {
             ...state,
             addingItem: false,
             error: '',
-            items: action.payload
+            message: action.payload
         }
         case ADD_ITEM_FAILURE:
         return {
             ...state,
             addingItem: false,
-            error: action.payload 
+            error: '',
+            // items: action.payload
         }
         case FETCH_ITEM_START:
         return {
@@ -83,6 +92,47 @@ const reducer = ( state = initialState, action ) => {
             fetchingItems: false,
             error: action.payload 
         }
+        case DELETE_ITEM_START:
+        return {
+            ...state,
+            deletingItem: true,
+        }
+        case DELETE_ITEM_SUCCESS:
+        return {
+            ...state,
+            deletingItem: false,
+            error: '',
+            message: action.payload
+        }
+        case EDIT_ITEM_START:
+        return {
+            ...state,
+            editingItem: true,
+        }
+        case EDIT_ITEM_SUCCESS:
+        return {
+            ...state,
+            editingItem: false,
+            items: action.payload
+        }
+        case FETCH_ID_START:
+        return {
+            ...state,
+            fetchingItems: true,
+        }
+        case FETCH_ID_SUCCESS:
+        return {
+            ...state,
+            fetchingItems: false,
+            item: action.payload 
+        }
+        case FETCH_ID_FAILURE:
+        return {
+            ...state,
+            fetchingItems: false,
+            error: action.payload 
+        }
+
         default: 
         return state;
     }

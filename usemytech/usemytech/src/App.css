@@ -50,6 +50,14 @@ form {
 position: absolute;
 right: 9px;
 top: 10px;
+cursor: pointer;
+}
+
+.fa-edit{
+  position: absolute;
+  right: 30px;
+  top: 10px;
+  cursor: pointer;
 }
 
 img {
