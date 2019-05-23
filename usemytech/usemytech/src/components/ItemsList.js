@@ -41,6 +41,7 @@ class Items extends Component {
             <img src={item.imgURL} />
             <div className="item-info">
               <i className="far fa-times-circle" onClick={() => this.deleteItem(item.id)} /> 
+              <i class="fas fa-edit" />
               <h2>{item.title}</h2>
               <p>{item.type}</p>
               <p>{item.description}</p>
