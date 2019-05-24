@@ -11,7 +11,8 @@ class AddItemForm extends Component {
       description: "",
       type: "",
       price: "",
-      availability: true
+      availability: true,
+      imgURL: ""
     }
   };
 
@@ -36,7 +37,8 @@ class AddItemForm extends Component {
         description: "",
         type: "",
         price: "",
-        availability: true
+        availability: true,
+        imgURL: "",
       }
     });
   };
@@ -85,6 +87,13 @@ class AddItemForm extends Component {
             type="integer"
             name="owner"
             value={this.state.items.owner}
+            onChange={this.handleItemChange}
+          />
+          Image:{" "}
+          <input
+            type="text"
+            name="imgURL"
+            value={this.state.items.imgURL}
             onChange={this.handleItemChange}
           />
           <button>

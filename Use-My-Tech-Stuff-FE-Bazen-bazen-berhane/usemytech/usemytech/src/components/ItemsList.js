@@ -35,7 +35,7 @@ class Items extends Component {
    
     return (
       <div className="item-list">
-        {this.props.message && <p>{this.props.message}</p>}
+        {this.props.message && <p >{this.props.message}</p>}
         {!this.props.items ? <div>Loading...</div> : this.props.items.map(item => {
           if ( this.state.editingItemId === item.id) {
             return <EditForm editingId={this.state.editingItemId} item={item} />
@@ -46,7 +46,7 @@ class Items extends Component {
             <div className="item-info">
               <i className="far fa-times-circle" onClick={() => this.deleteItem(item.id)} /> 
               <i class="fas fa-edit" onClick={() => this.changeRoute(item) }/>
-              <h2>{item.title}</h2>
+              <h4>{item.title}</h4>
               <p>{item.type}</p>
               <p>{item.description}</p>
             </div>

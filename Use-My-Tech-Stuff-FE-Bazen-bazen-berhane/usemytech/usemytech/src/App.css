@@ -4,21 +4,92 @@
   margin: 40px;
 }
 
+.Nav_link:link {
+  color: #fff;
+  font-size: 1.2rem;
+  line-height: 1.6rem;
+  text-decoration: none;
+}
+.Nav_link:visited {
+  color: black;
+}
+.Nav_link:hover {
+  font-weight: bold;
+  text-shadow: 2px 1px #6658F5;
+}
 
 
+.login-username{
+  font-weight: 500;
+  text-shadow: 1px 1px #6658F5;
+  letter-spacing: 2px;
+}
+
+.login{
+  letter-spacing: 3px;
+  text-shadow: 2px 1px #6658F5;
+
+}
+
+.logo{
+  width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  
+}
+
+.login-input{
+  border: none;
+  border-bottom: 2px solid #6658F5;
+  margin: 20px;
+}
+/* .login-input:focus{
+  border: 3px solid #6658F5;
+} */
+
+.login-form-btn {
+  width: 150px;
+  height: 40px;
+  font-size: 15px;
+  border-radius: 5px;
+  margin: 10px;
+  font-weight: bold;
+  letter-spacing: 2px;
+  font-weight: 900;
+ color: #6658F5;
+ background: #fff;
+ border: 2px solid #6658F5;
+ -webkit-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+}
+
+.login-form-btn:hover {
+  background:#6658F5;
+  color: #fff;
+  box-shadow: 0 12px 16px 0 gainsboro;
+  border: 3px solid #555;
+}
+
+.logout-btn{
+  width: 80px;
+  background: none;
+  
+}
 
 
 form {
   display: flex;
-  z-index: 10;
   position: relative;
   width: 400px;
   margin: 16px auto;
-  box-shadow: 4px 8px 16px rgba(0, 0, 0, 0.3);
+  box-shadow: 4px 8px 16px #6658F5;
   align-items: center;
   background-color: #fff;
   padding: 1rem;
   flex-flow: column;
+  
 }
 
  form > input {
@@ -34,19 +105,7 @@ form {
   border-radius: 6px;
 }
 
-.login-form-btn {
-  width: 140px;
-  height: 25px;
-  border-radius: 5px;
-  margin: 5px;
-  color: indigo;
-}
 
-.logout-btn{
-  width: 80px;
-  background: none;
-  
-}
 
 .item-card{
   position: relative;
@@ -56,26 +115,27 @@ form {
   max-height: 200px;
   margin: 1rem;
   padding: 1rem;
-  width: 400px;
+  width: 350px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
 }
 
 .fa-times-circle{
 position: absolute;
-right: 9px;
+right: 10px;
 top: 10px;
 cursor: pointer;
 }
 
 .fa-edit{
   position: absolute;
-  right: 30px;
-  top: 10px;
+  right: 10px;
+  top: 200px;
   cursor: pointer;
 }
 
 img {
   width: 55%;
+  
 }
 
 .item-info {
@@ -85,6 +145,6 @@ img {
 
 .item-list {
   display: flex;
-  flex-flow: column nowrap;
+  flex-flow: row wrap;
   align-items: center;
 }

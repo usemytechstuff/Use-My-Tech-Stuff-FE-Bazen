@@ -42,25 +42,26 @@ class Login extends Component {
       <div className='login-form'>
         
         <form onSubmit={this.login}>
-        <h2>Login</h2>
-        <label for='username'>Account</label>
+        <h1 className='login'>Login</h1>
+        
           <input 
-          className='input'
+          className='login-input'
           type='text'
           name='username'
           placeholder='Username'
           onChange={this.handleLoginChange}
           value={this.state.credentials.username}
           />
-          <label for='password'>Password</label>
+        
           <input 
-          className='input'
+          className='login-input'
           type='password'
           name='password'
           placeholder='Password'
           onChange={this.handleLoginChange}
           value={this.state.credentials.password}
           />
+          {this.props.error && <p>{this.props.error}</p>}
           <button className='login-form-btn'>
             {this.props.loggingIn ? (
               <Loader type="ThreeDots" color="#1f2a38" height="12" width="26" />
@@ -70,7 +71,7 @@ class Login extends Component {
             </button>
             <button className='login-form-btn' onClick={this.changeRoute}>Register</button>
         </form>
-        {this.props.error && <p>{this.props.error}</p>}
+        
       </div>
     );
   }

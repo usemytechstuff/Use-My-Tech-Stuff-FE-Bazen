@@ -1,72 +1,72 @@
 import React, { Component } from "react";
-import Loader from 'react-loader-spinner';
-import { connect } from 'react-redux';
+import Loader from "react-loader-spinner";
+import { connect } from "react-redux";
 
-import { signUp } from '../actions';
+import { signUp } from "../actions";
 
+class SignUp extends Component {
+  state = {
+    user: {
+      username: "",
+      email: "",
+      password: ""
+    }
+  };
 
- class SignUp extends Component {
-   state = {
-     user: {
-       username: '',
-       email: '',
-       password: ''
-     }
-   }
-
-   handleSignUpChange = event => {
-     this.setState({
-       user: {
+  handleSignUpChange = event => {
+    this.setState({
+      user: {
         ...this.state.user,
         [event.target.name]: event.target.value
-       }
-      })
-   }
-  
-   signup = event => {
-     event.preventDefault();
-     this.props.signUp(this.state.user)
-     .then(() => this.props.history.push('/'))
-   }
+      }
+    });
+  };
+
+  signup = event => {
+    event.preventDefault();
+    this.props.signUp(this.state.user).then(() => this.props.history.push("/"));
+  };
 
   render() {
     return (
-      <div className='register-form'>
+      <div className="register-form">
         <form onSubmit={this.signup}>
-        <h2>Sign Up</h2>
-                Name: <input 
-                className='input'
-                placeholder='Name'
-                name='username'
-                type='text'
-                value={this.state.user.username}
-                onChange={this.handleSignUpChange}
-                />
-                Email: <input 
-                className='input'
-                placeholder='Email'
-                name='email'
-                type='text'
-                value={this.state.user.email}
-                onChange={this.handleSignUpChange}
-                />
-                Password: <input 
-                className='input'
-                placeholder='Password'
-                name='password'
-                type='text'
-                value={this.state.user.password}
-                onChange={this.handleSignUpChange}
-                />
-                <button>
+          <h2>Sign Up</h2>
+          Name:{" "}
+          <input
+            className="input"
+            placeholder="Name"
+            name="username"
+            type="text"
+            value={this.state.user.username}
+            onChange={this.handleSignUpChange}
+          />
+          Email:{" "}
+          <input
+            className="input"
+            placeholder="Email"
+            name="email"
+            type="text"
+            value={this.state.user.email}
+            onChange={this.handleSignUpChange}
+          />
+          Password:{" "}
+          <input
+            className="input"
+            type="password"
+            name="password"
+            placeholder="Password"
+            value={this.state.user.password}
+            onChange={this.handleSignUpChange}
+          />
+          <button>
             {this.props.signingUp ? (
               <Loader type="ThreeDots" color="#1f2a38" height="12" width="26" />
             ) : (
-              'Sign Up'
+              "Sign Up"
             )}
-            </button>
-            </form>
-
+          </button>
+        </form>
       </div>
     );
   }
@@ -74,7 +74,10 @@ import { signUp } from '../actions';
 
 const mapStateToProps = ({ signingUp, error }) => ({
   signingUp,
-  error 
-})
+  error
+});
 
-export default connect(mapStateToProps, { signUp }) (SignUp);
+export default connect(
+  mapStateToProps,
+  { signUp }
+)(SignUp);
