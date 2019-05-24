@@ -32,12 +32,12 @@ class AddItemForm extends Component {
     });
     this.setState({
       items: {
-        owner: 1,
+        owner: '',
         title: "",
         description: "",
         type: "",
         price: "",
-        availability: true,
+        availability: '',
         imgURL: "",
       }
     });
