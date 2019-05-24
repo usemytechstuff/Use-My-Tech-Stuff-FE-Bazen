@@ -34,6 +34,8 @@ class Items extends Component {
   render() {
    
     return (
+      <div className='list-body'>
+      <img className='banner' src={require('../images/banner.jpg')}  />
       <div className="item-list">
         {this.props.message && <p >{this.props.message}</p>}
         {!this.props.items ? <div>Loading...</div> : this.props.items.map(item => {
@@ -42,20 +44,22 @@ class Items extends Component {
           } 
           return (
             <div key={item.id} className="item-card">
-            <img src={item.imgURL} />
+            <img className='item-img' src={item.imgURL} />
             <div className="item-info">
-              <i className="far fa-times-circle" onClick={() => this.deleteItem(item.id)} /> 
-              <i class="fas fa-edit" onClick={() => this.changeRoute(item) }/>
+              <button className="delete-btn" onClick={() => this.deleteItem(item.id)} >Delete</button> 
+              <button class="edit-btn" onClick={() => this.changeRoute(item) }>Edit</button>
               <h4>{item.title}</h4>
               <p>{item.type}</p>
               <p>{item.description}</p>
             </div>
           </div>
+            
          )
           
         
         }
         )}
+      </div>
       </div>
     );
   }

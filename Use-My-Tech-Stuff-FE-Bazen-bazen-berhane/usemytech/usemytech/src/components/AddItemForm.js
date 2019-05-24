@@ -96,7 +96,7 @@ class AddItemForm extends Component {
             value={this.state.items.imgURL}
             onChange={this.handleItemChange}
           />
-          <button>
+          <button className='add-btn'>
             {this.props.addingItem ? (
               <Loader type="ThreeDots" color="#1f2a38" height="12" width="26" />
             ) : (
